@@ -3,23 +3,16 @@ package com.stocknews.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.readystatesoftware.viewbadger.BadgeView;
+
 import com.stocknews.R;
-import com.stocknews.R.id;
-import com.stocknews.R.layout;
-import com.stocknews.R.menu;
 import com.stocknews.adapter.MainPageAdapter;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -52,7 +45,7 @@ private RadioButton button0, button1, button2,button3;
 		
 		group = (RadioGroup) findViewById(R.id.radioGroup1);
 		button0 = (RadioButton) findViewById(R.id.radio0);
-		Button btn=(Button)findViewById(R.id.bt);
+//		Button btn=(Button)findViewById(R.id.bt);
 //		BadgeView	  badge4 = new BadgeView(this, btn);
 //		badge4.setText("...");
 //		badge4.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
@@ -65,19 +58,16 @@ private RadioButton button0, button1, button2,button3;
 
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
-		// TODO Auto-generated method stub
 		Log.v("asdf", "onPageScrollStateChanged");
 	}
 	
 	@Override
 	public void onPageScrolled(int arg0, float arg1, int arg2) {
-		// TODO Auto-generated method stub
 		// Log.v("asdf", "onPageScrolled");
 	}
 	
 	@Override
 	public void onPageSelected(int arg0) {
-		// TODO Auto-generated method stub
 		Log.v("asdf", "onPageSelected");
 		getTabState(arg0);
 	
@@ -85,7 +75,6 @@ private RadioButton button0, button1, button2,button3;
 	
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
-		// TODO Auto-generated method stub
 		switch (checkedId) {
 		case R.id.radio0:
 			pager.setCurrentItem(0);
@@ -105,7 +94,6 @@ private RadioButton button0, button1, button2,button3;
 	}
 	
 	private void getTabState(int index) {
-		// TODO Auto-generated method stub
 		button0.setChecked(false);
 		button1.setChecked(false);
 		button2.setChecked(false);
