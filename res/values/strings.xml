@@ -4,5 +4,8 @@
     <string name="app_name">证券新闻</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+	<string name="fragment_news">要闻</string>
+	<string name="fragment_report">研报</string>
+	<string name="fragment_stock">新股</string>
+	<string name="fragment_company">公司</string>
 </resources>
