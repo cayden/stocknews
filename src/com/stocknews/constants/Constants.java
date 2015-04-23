@@ -12,4 +12,11 @@ package com.stocknews.constants;
  */
 public class Constants {
 
+	public static final int TAB_NEWS				=0x00;
+	
+	public static final int TAB_REPORT				=0x01;
+	
+	public static final int TAB_STOCK				=0x02;
+	
+	public static final int TAB_COMPANY				=0x03;
 }
