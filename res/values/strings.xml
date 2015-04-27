@@ -8,4 +8,11 @@
 	<string name="fragment_report">研报</string>
 	<string name="fragment_stock">新股</string>
 	<string name="fragment_company">公司</string>
+	
+	
+	<string name="check_internet">检查网络</string>
+    <string name="fail_status">打开失败啦!</string>
+    <string name="fail_status_desc">您可以检查网络状态后</string>
+    <string name="fail_status_desc1">点击屏幕 重新加载.</string>
+    <string name="sever_error">服务器出现异常,请稍后再试</string>
 </resources>

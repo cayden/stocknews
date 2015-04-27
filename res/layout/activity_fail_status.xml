@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_vertical"
+    android:id="@+id/relativeFail"
+    android:visibility="gone"
+    android:orientation="vertical">
+
+    <RelativeLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+      <ImageView
+         android:id="@+id/about_logo"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="true"
+         android:src="@drawable/fail_status" />
+        
+     <TextView
+        android:gravity="center"
+        android:layout_below="@+id/about_logo"
+        android:id="@+id/about_version"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/def_title_text"
+        android:textColor="@color/navigation_bt_select"
+        android:text="@string/fail_status" />
+
+      <TextView
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:layout_below="@+id/about_version"
+        android:id="@+id/status_desc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/def_small_text"
+        android:textColor="@color/app_content"
+        android:text="@string/fail_status_desc" />
+ 	  <TextView
+        android:gravity="center"
+        android:layout_below="@+id/status_desc"
+        android:id="@+id/status_desc1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/def_small_text"
+        android:textColor="@color/app_content"
+        android:text="@string/fail_status_desc1" />
+    
+        
+     </RelativeLayout>
+   
+</RelativeLayout>
