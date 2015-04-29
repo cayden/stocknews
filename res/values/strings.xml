@@ -9,6 +9,11 @@
 	<string name="fragment_stock">新股</string>
 	<string name="fragment_company">公司</string>
 	
+	<string name="passidcard">身份证号码</string>
+	<string name="password">密码</string>
+	<string name="code">附加码</string>
+	<string name="settings_login">登录</string>
+	
 	
 	<string name="check_internet">检查网络</string>
     <string name="fail_status">打开失败啦!</string>

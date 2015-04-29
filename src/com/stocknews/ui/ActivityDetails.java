@@ -54,7 +54,7 @@ public class ActivityDetails extends Activity implements OnClickListener {
         setContentView(R.layout.activity_detail);
         initViews();
         setListener();
-        // CommonUtilities.initPush();
+       
         loadData();
     }
 

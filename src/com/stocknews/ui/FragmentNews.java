@@ -14,6 +14,7 @@ import com.stocknews.application.UIHandler;
 import com.stocknews.constants.Constants;
 import com.stocknews.controller.NetTask;
 import com.stocknews.customerview.PullDownView;
+import com.stocknews.customerview.PullDownView.OnPullDownListener;
 import com.stocknews.customerview.ScrollOverListView;
 import com.stocknews.jsoup.HtmlBaseInfo;
 import com.stocknews.jsoup.HtmlInfo;
@@ -58,7 +59,7 @@ public class FragmentNews extends Fragment  {
 		View v=getView();
 		pullDownView=(PullDownView)v.findViewById(R.id.listview);
 		pullDownView.enableAutoFetchMore(true, 0);
-		pullDownView.enableLoadMore(false);
+		pullDownView.enableLoadMore(true);
 		listView=pullDownView.getListView();
 		data=new ArrayList<HtmlInfo>();
 		htmlAdapter=new HtmlAdapter(data, getActivity());
@@ -69,7 +70,7 @@ public class FragmentNews extends Fragment  {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
-				// TODO Auto-generated method stub
+				
 				 HtmlInfo info=data.get(position);
 				 Intent intent=new Intent(getActivity(),ActivityDetails.class);
 				 Bundle bundle=new Bundle();
@@ -80,12 +81,26 @@ public class FragmentNews extends Fragment  {
 			
 			
 		});
+		
+	pullDownView.setOnPullDownListener(new OnPullDownListener() {
+			
+			@Override
+			public void onRefresh() {
+				
+//				pullDownView.notifyDidRefresh(false);
+			}
+			@Override
+			public void onLoadMore() {
+				
+//				pullDownView.notifyDidLoadMore(false);
+			}
+		});
 		initData();
 		
 	}
 	
 	private void initData(){
-		TipsUtil.showProgress(getActivity(), "正在加载...", "提示");
+//		TipsUtil.showProgress(getActivity(), "正在加载...", "提示");
 		new Thread(new NetTask(mHandler)).start();
 	}
 	
@@ -94,8 +109,8 @@ public class FragmentNews extends Fragment  {
 
 	        public void onMessage(Message msg) {
 	            try{
-	            	TipsUtil.closeProgressDialog();
-	            	pullDownView.notifyDidDataLoad(false);
+//	            	TipsUtil.closeProgressDialog();
+	            	
 	            	switch(msg.what){
 	            	case UIHandler.RESPONSE_SUCCESS:
 	            		HtmlBaseInfo baseInfo=(HtmlBaseInfo)msg.getData().getSerializable(Constants.KEY_OBJ);
@@ -109,7 +124,7 @@ public class FragmentNews extends Fragment  {
 	            			
 	            		break;
 	            	}
-	            
+	            	pullDownView.notifyDidDataLoad(false);
 	            }catch(Exception e){
 	            	LogsUtil.d(TAG, "onMessage error", e);
 	            }

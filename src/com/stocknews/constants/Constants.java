@@ -16,6 +16,7 @@ public class Constants {
 	 */
 	public static final String SERVER_URL			=	"http://finance.qq.com/l/stock/gdzx/list2012121283658.htm";
 	
+	public static final String GET_CODE_URL         =    "http://www.bjld.gov.cn/csibiz/indinfo/validationCodeServlet.do";
 	
 	public static final int TAB_NEWS				=0x00;
 	

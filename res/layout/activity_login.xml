@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.polysaas.emmlite.MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/manager_phone"
+            android:layout_marginTop="20dp"
+            style="@style/register_edt_style"
+            android:hint="@string/passidcard"
+            android:inputType="phone"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/manager_password"
+            style="@style/register_edt_style"
+            android:layout_marginTop="20dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textSize="16sp" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+            <EditText
+            android:id="@+id/code"
+            android:layout_marginTop="20dp"
+            style="@style/register_edt_style"
+            android:hint="@string/code"
+            android:inputType="number"
+            android:layout_width="100dp"
+            android:textSize="16sp" />
+            
+            <ImageView 
+                  android:layout_marginTop="20dp"
+                android:id="@+id/imageCode"
+                android:layout_width="100dp"
+                android:layout_height="40dp"/>
+         </LinearLayout>
+        
+        <Button
+            android:id="@+id/manager_login"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:text="@string/settings_login"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>
