@@ -115,7 +115,7 @@ public abstract class NetBaseTask implements Runnable {
 
 	protected HttpUriRequest getUriRequest() {
 	    	String destUrl=getDestUrl();
-	    	if(null==destUrl||"".equals(destUrl)){
+	    	if(TextUtils.isEmpty(destUrl)){
 	    		return null;
 	    	}else{
 	    		 HttpUriRequest httpRequest = new HttpGet(destUrl);

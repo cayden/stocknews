@@ -10,9 +10,11 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.simple.eventbus.EventBus;
 
 
 import com.stocknews.constants.Constants;
+import com.stocknews.jsoup.HtmlInfo;
 import com.stocknews.util.LogsUtil;
 
 /**
@@ -36,6 +38,12 @@ public class LoginTask extends NetBaseTask {
 		this.code = code;
 		
 		requestUrl=Constants.LOGIN_URL;
+		HtmlInfo info=new HtmlInfo();
+		info.setSubject("testesetr");
+		EventBus.getDefault().post(info);
+		info=new HtmlInfo();
+		info.setSubject("testesetr tag");
+		EventBus.getDefault().post(info,"my_tag");
 	}
 
 	@Override
@@ -48,7 +56,7 @@ public class LoginTask extends NetBaseTask {
 	protected void onHttpResponseComplete(int statusCode,
 			JSONObject responseData) {
 		
-
+		
 	}
 
     @Override

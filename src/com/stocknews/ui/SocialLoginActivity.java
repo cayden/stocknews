@@ -9,11 +9,15 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.simple.eventbus.EventBus;
+import org.simple.eventbus.Subscriber;
+
 import com.stocknews.R;
 import com.stocknews.application.UIHandler;
 import com.stocknews.constants.Constants;
 import com.stocknews.controller.LoginTask;
 import com.stocknews.jsoup.HtmlBaseInfo;
+import com.stocknews.jsoup.HtmlInfo;
 import com.stocknews.util.LogsUtil;
 
 import android.app.Activity;
@@ -29,7 +33,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 /**
- * 社保登陆 
+ * social login
  * @author cuiran
  * @version 1.0.0
  */
@@ -54,6 +58,7 @@ public class SocialLoginActivity extends Activity implements OnClickListener{
 		login.setOnClickListener(this);
 		new Thread(new GetCode(Constants.GET_CODE_URL)).start();
 		
+		EventBus.getDefault().register(this);
 		
 	}
 	
@@ -129,6 +134,16 @@ public class SocialLoginActivity extends Activity implements OnClickListener{
 		new Thread(new LoginTask(idcard, password, code)).start();
 	}
 	
+	@Subscriber
+	private void updateUser(HtmlInfo info ){
+		LogsUtil.i(TAG, "info!!"+info.getSubject());
+	}
+	
+	@Subscriber(tag = "my_tag")
+	private void updateUserWithTag(HtmlInfo info ){
+		LogsUtil.i(TAG, "info!!!"+info.getSubject());
+	}
+	
 	@Override
 	public void onClick(View view) {
 		switch(view.getId()){
@@ -138,5 +153,12 @@ public class SocialLoginActivity extends Activity implements OnClickListener{
 		}
 		
 	}
+
+	@Override
+	protected void onDestroy() {
+		EventBus.getDefault().unregister(this);
+		super.onDestroy();
+	}
+	
 	
 }
