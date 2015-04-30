@@ -1,1 +1,1 @@
-stocknews证券新闻资讯app
+stocknews app
