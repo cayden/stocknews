@@ -18,6 +18,8 @@ public class Constants {
 	
 	public static final String GET_CODE_URL         =    "http://www.bjld.gov.cn/csibiz/indinfo/validationCodeServlet.do";
 	
+	public static final String LOGIN_URL        	=    "http://www.bjld.gov.cn//csibiz/indinfo/login_check";
+	
 	public static final int TAB_NEWS				=0x00;
 	
 	public static final int TAB_REPORT				=0x01;

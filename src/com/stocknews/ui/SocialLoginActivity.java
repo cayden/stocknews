@@ -12,6 +12,7 @@ import java.net.URL;
 import com.stocknews.R;
 import com.stocknews.application.UIHandler;
 import com.stocknews.constants.Constants;
+import com.stocknews.controller.LoginTask;
 import com.stocknews.jsoup.HtmlBaseInfo;
 import com.stocknews.util.LogsUtil;
 
@@ -21,6 +22,10 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 /**
@@ -28,19 +33,25 @@ import android.widget.ImageView;
  * @author cuiran
  * @version 1.0.0
  */
-public class SocialLoginActivity extends Activity {
+public class SocialLoginActivity extends Activity implements OnClickListener{
 	private static final String TAG="SocialLoginActivity";
 	
 	private ImageView viewCode=null;
-	
+	private EditText idcardEdit,passwordEdit,codeEdit;
 	private Bitmap bitmap=null;
+	private Button login;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
 		viewCode=(ImageView)findViewById(R.id.imageCode);
+		idcardEdit=(EditText)findViewById(R.id.idcard);
+		passwordEdit=(EditText)findViewById(R.id.password);
+		codeEdit=(EditText)findViewById(R.id.code);
 		
+		login=(Button)findViewById(R.id.login);
+		login.setOnClickListener(this);
 		new Thread(new GetCode(Constants.GET_CODE_URL)).start();
 		
 		
@@ -108,6 +119,24 @@ public class SocialLoginActivity extends Activity {
 		}
 		
 		return bitmap;
+	}
+
+	private void submitLogin(){
+		String idcard=idcardEdit.getText().toString();
+		String password=passwordEdit.getText().toString();
+		String code=codeEdit.getText().toString();
+		
+		new Thread(new LoginTask(idcard, password, code)).start();
+	}
+	
+	@Override
+	public void onClick(View view) {
+		switch(view.getId()){
+		case R.id.login:
+			submitLogin();
+			break;
+		}
+		
 	}
 	
 }

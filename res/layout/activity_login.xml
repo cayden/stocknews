@@ -11,7 +11,7 @@
         android:orientation="vertical" >
 
         <EditText
-            android:id="@+id/manager_phone"
+            android:id="@+id/idcard"
             android:layout_marginTop="20dp"
             style="@style/register_edt_style"
             android:hint="@string/passidcard"
@@ -19,7 +19,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/manager_password"
+            android:id="@+id/password"
             style="@style/register_edt_style"
             android:layout_marginTop="20dp"
             android:hint="@string/password"
@@ -48,7 +48,7 @@
          </LinearLayout>
         
         <Button
-            android:id="@+id/manager_login"
+            android:id="@+id/login"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
